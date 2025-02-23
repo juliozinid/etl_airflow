@@ -1,15 +1,22 @@
-🚀 Projeto: ETL Orquestrado com Apache Airflow
+# 🚀 Projeto: ETL Orquestrado com Apache Airflow
 
-📌 Descrição
+## 📌 Descrição
 
-Este projeto implementa um pipeline de dados automatizado e escalável usando Apache Airflow, PostgreSQL e MongoDB. O objetivo é consolidar informações de acessos ao site (MongoDB) e pedidos de clientes (PostgreSQL) em um Data Warehouse (PostgreSQL) para análise.
+Este projeto implementa um **pipeline de dados automatizado e escalável** usando **Apache Airflow**, **PostgreSQL** e **MongoDB**. O objetivo é consolidar informações de **acessos ao site (MongoDB)** e **pedidos de clientes (PostgreSQL)** em um **Data Warehouse (PostgreSQL)** para análise.
 
-🎯 Objetivos do Projeto
+## 🎯 Objetivos do Projeto
 
-✅ Extrair dados de MongoDB e PostgreSQL✅ Transformar os dados, cruzando logs de acesso e pedidos✅ Carregar os dados no Data Warehouse (PostgreSQL)✅ Orquestrar o processo com Apache Airflow✅ Criar um dashboard opcional para análise
+✅ Extrair dados de **MongoDB** e **PostgreSQL**\
+✅ Transformar os dados, cruzando logs de acesso e pedidos\
+✅ Carregar os dados no **Data Warehouse (PostgreSQL)**\
+✅ Orquestrar o processo com **Apache Airflow**\
+✅ Criar um **dashboard opcional** para análise
 
-🏗 Arquitetura do Projeto
+---
 
+## 🏗 Arquitetura do Projeto
+
+```bash
 etl_project/
 │── dags/                   # DAGs do Airflow
 │   ├── etl_pipeline.py     # DAG principal
@@ -33,73 +40,104 @@ etl_project/
 │   ├── docker-compose.yml  # Arquivo de configuração do ambiente
 │── requirements.txt        # Dependências do projeto
 │── README.md               # Documentação do projeto
+```
 
-⚙️ Tecnologias Utilizadas
+---
 
-🔹 Apache Airflow - Orquestração de workflows🔹 PostgreSQL - Banco de dados relacional🔹 MongoDB - Banco NoSQL para logs de acesso🔹 Python (pandas, psycopg2, pymongo) - Scripts de ETL🔹 Docker & Docker Compose - Contêineres para ambiente isolado🔹 Streamlit (opcional) - Dashboard para visualização
+## ⚙️ Tecnologias Utilizadas
 
-🚀 Configuração do Ambiente
+🔹 **Apache Airflow** - Orquestração de workflows\
+🔹 **PostgreSQL** - Banco de dados relacional\
+🔹 **MongoDB** - Banco NoSQL para logs de acesso\
+🔹 **Python (pandas, psycopg2, pymongo)** - Scripts de ETL\
+🔹 **Docker & Docker Compose** - Contêineres para ambiente isolado\
+🔹 **Streamlit (opcional)** - Dashboard para visualização
 
-1️⃣ Clonar o Repositório
+---
 
+## 🚀 Configuração do Ambiente
+
+### **1️⃣ Clonar o Repositório**
+
+```bash
 git clone https://github.com/seu-usuario/etl_airflow.git
 cd etl_airflow
+```
 
-2️⃣ Criar o Ambiente Docker
+### **2️⃣ Criar o Ambiente Docker**
 
+```bash
 cd docker
 docker-compose up -d --build
+```
 
-✅ Isso iniciará os containers do Airflow, PostgreSQL e MongoDB.
+✅ Isso iniciará os containers do **Airflow, PostgreSQL e MongoDB**.
 
-3️⃣ Acessar o Apache Airflow
+### **3️⃣ Acessar o Apache Airflow**
 
-🔗 Acesse a interface do Airflow:📌 http://localhost:8080 (Usuário: admin | Senha: admin)
+🔗 Acesse a interface do Airflow:\
+📌 `http://localhost:8080` (Usuário: `admin` | Senha: `admin`)
 
-4️⃣ Rodar o Pipeline ETL
+### **4️⃣ Rodar o Pipeline ETL**
 
-No Airflow, ative o DAG etl_pipeline.
+1. No Airflow, ative o DAG `etl_pipeline`.
+2. Aguarde a execução automática ou acione manualmente.
+3. Monitore os logs para verificar a execução.
 
-Aguarde a execução automática ou acione manualmente.
+---
 
-Monitore os logs para verificar a execução.
+## 🛠 Detalhes do Pipeline ETL
 
-🛠 Detalhes do Pipeline ETL
+### **1️⃣ Extração de Dados**
 
-1️⃣ Extração de Dados
+📌 **MongoDB:** Logs de acesso ao site\
+📌 **PostgreSQL:** Pedidos dos clientes
 
-📌 MongoDB: Logs de acesso ao site📌 PostgreSQL: Pedidos dos clientes
+### **2️⃣ Transformação**
 
-2️⃣ Transformação
+📌 Cruzamento dos dados por `user_id`\
+📌 Normalização e limpeza dos registros
 
-📌 Cruzamento dos dados por user_id📌 Normalização e limpeza dos registros
-
-3️⃣ Carga no Data Warehouse
+### **3️⃣ Carga no Data Warehouse**
 
 📌 Salvando os dados transformados no PostgreSQL
 
-📊 Dashboard (Opcional)
+---
 
-Para visualizar os dados transformados, use Streamlit:
+## 📊 Dashboard (Opcional)
 
+Para visualizar os dados transformados, use **Streamlit**:
+
+```bash
 cd dashboards
 streamlit run dashboard.py
+```
 
-Acesse http://localhost:8501 para ver os insights.
+Acesse `http://localhost:8501` para ver os insights.
 
-✅ Testes Automatizados
+---
+
+## ✅ Testes Automatizados
 
 Execute os testes para garantir a qualidade dos scripts:
 
+```bash
 pytest tests/
+```
 
-📝 Melhorias Futuras
+---
 
-🚀 Adicionar monitoramento com Prometheus/Grafana🚀 Melhorar performance do ETL com batch inserts🚀 Implementar notificações via Slack no Airflow
+## 📝 Melhorias Futuras
 
-📌 Conclusão
+🚀 Adicionar **monitoramento com Prometheus/Grafana**\
+🚀 Melhorar performance do ETL com **batch inserts**\
+🚀 Implementar **notificações via Slack** no Airflow
 
-Este projeto demonstra como criar um pipeline ETL robusto, escalável e automatizado com Apache Airflow e Docker. 🚀
+---
+
+## 📌 Conclusão
+
+Este projeto demonstra como criar um **pipeline ETL robusto**, **escalável** e **automatizado** com Apache Airflow e Docker. 🚀
 
 Se tiver dúvidas ou sugestões, abra uma issue ou entre em contato! 😃
 
